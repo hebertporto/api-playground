@@ -2,6 +2,21 @@
   "name": "api-playground",
   "version": "1.0.0",
   "main": "src/app.js",
-  "author": "Hebert Porto",
-  "license": "MIT"
+  "author": "Hebert Porto <hebertporto@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon dist/app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
 }
