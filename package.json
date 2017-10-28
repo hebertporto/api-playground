@@ -1,0 +1,7 @@
+{
+  "name": "api-playground",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "author": "Hebert Porto",
+  "license": "MIT"
+}
