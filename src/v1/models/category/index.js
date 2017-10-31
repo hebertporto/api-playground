@@ -61,3 +61,14 @@ export function findByIdOrFindAll(categoryId, currentPage) {
       throw new Error({ payload: err, code: 500 })
     })
 }
+
+export function remove(categoryId) {
+  const { ObjectId } = mongoose.Types
+
+  return Category.remove({ _id: ObjectId(categoryId) })
+    .exec()
+    .then(payload => payload)
+    .catch((err) => {
+      throw Object({ message: messages.REMOVE_CATEGORY_FAILED, status: 422, payload: err })
+    })
+}
