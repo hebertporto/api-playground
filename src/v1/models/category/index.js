@@ -72,3 +72,23 @@ export function remove(categoryId) {
       throw Object({ message: messages.REMOVE_CATEGORY_FAILED, status: 422, payload: err })
     })
 }
+
+export function update(body, categoryId) {
+  const { ObjectId } = mongoose.Types
+
+  return Category.findOneAndUpdate({
+    _id: ObjectId(categoryId),
+  }, {
+    $set: body,
+  }, {
+    new: true,
+  })
+    .then(payload => payload)
+    .catch((err) => {
+      throw new Error({
+        message: messages.UPDATE_CATEGORY_FAILED,
+        status: 422,
+        payload: err,
+      })
+    })
+}

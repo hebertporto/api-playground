@@ -4,6 +4,7 @@ import {
   create,
   findByIdOrFindAll,
   remove,
+  update,
 } from './../../models/category'
 
 
@@ -26,6 +27,14 @@ router.get('/:categoryId?', ({ params, query }, res, next) => {
 router.delete('/categoryId', ({ params }, res, next) => {
   const { categoryId } = params
   remove(categoryId)
+    .then(payload => res.status(200).json({ payload }))
+    .catch(error => next(error))
+})
+
+router.put('/:categoryId', ({ body, params }, res, next) => {
+  const { categoryId } = params
+
+  update(body, categoryId)
     .then(payload => res.status(200).json({ payload }))
     .catch(error => next(error))
 })
